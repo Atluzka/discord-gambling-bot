@@ -33,4 +33,6 @@ If you have any suggestions or you've found an error with the program please let
 </h3>
 
 * Add more gamble commands
+* Command to pay people money
+* A top 10 list of the richest users
 * Have a way for people to get money like daily rewards or something, instead of admins giving them money.
