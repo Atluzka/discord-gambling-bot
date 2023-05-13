@@ -1,0 +1,9 @@
+{
+  "token": "",
+  "admins": [664924452047290368, 12345678987654321],
+  "command-cooldown": true,
+  "cmd-cooldown-duration": 3,
+  "win-multiplier": 2,
+  "minimum-coinflip-bet": 100,
+  "currency-name": "DOLLARS"
+}
