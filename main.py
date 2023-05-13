@@ -42,14 +42,13 @@ async def coinflip(interaction: discord.Interaction, guess: str, bet_amount: int
         await interaction.response.send_message("Invalid guess. You can only guess HEADS or TAILS")
         return
     result = random.choice(['heads', 'tails'])
-    if guess.lower() == result: #guess.lower() == result -- FOR TESTING ONLY
+    if guess.lower() == result:
         win_amount = math.ceil(config['win-multiplier']*bet_amount)
         cursor.execute("UPDATE users SET balance = (?) WHERE userid = (?)", (int(userdataresult[1]) + int(win_amount), interaction.user.id))
         datab.commit()
         embed=discord.Embed(title='Congratulations you won!',
                             description="Your guess was **{0}**, you've won **{1}** {2}.".format(guess.upper(), win_amount, config["currency-name"]),
                             color=0x3fff7c)
-        #cursor.execute("UPDATE users (userid, balance) VALUES (?, ?)", (interaction.user.id, 1200))
         embed.set_footer(text="Balance: {0}".format(str(int(userdataresult[1]) + int(win_amount))))
         await interaction.response.send_message(embed=embed)
     else:
@@ -73,7 +72,6 @@ async def freemoney(interaction: discord.Interaction, amount: int, userid: str =
             userdataresult = cursor.fetchone()
             if not userdataresult:
                 cursor.execute("INSERT INTO users (userid, balance) VALUES (?, ?)", (interaction.user.id, 0))
-                #await interaction.response.send_message("Sorry, but you do not have enough money to bet.")
             cursor.execute("UPDATE users SET balance = (?) WHERE userid = (?)", (amount, interaction.user.id))
             await interaction.response.send_message("Done.")
             datab.commit()
