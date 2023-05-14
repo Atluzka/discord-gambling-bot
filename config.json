@@ -3,7 +3,15 @@
   "admins": [664924452047290368, 12345678987654321],
   "command-cooldown": true,
   "cmd-cooldown-duration": 3,
+  "work-cooldown": 60,
+  "work-messages": [
+    "You helped out your neighbour and got ",
+    "You applied for a temporary job and got ",
+    "You sold your old computer and got "
+  ],
+  "work-min-payment": 100,
+  "work-max-payment": 500,
+  "starting_balance": 100,
   "win-multiplier": 2,
-  "minimum-coinflip-bet": 100,
-  "currency-name": "DOLLARS"
+  "minimum-coinflip-bet": 100
 }
